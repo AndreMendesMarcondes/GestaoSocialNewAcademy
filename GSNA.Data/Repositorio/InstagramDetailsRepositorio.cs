@@ -6,15 +6,16 @@ using MongoDB.Driver;
 
 namespace GSNA.Data.Repositorio
 {
-    public class EstudanteRepositorio : IEstudanteRepositorio
+    public class InstagramDetailsRepositorio : IInstagramDetailsRepositorio
     {
         private readonly IMongoCollection<InstagramDetails> _collection;
+        private static string COLLECTION = "InstagramDetails";
 
-        public EstudanteRepositorio(IOptions<MongoDBEstudanteSettings> mongoEstudanteSettings)
+        public InstagramDetailsRepositorio(IOptions<MongoDBSettings> mongoInstagramDetailsSettings)
         {
-            var mongoClient = new MongoClient(mongoEstudanteSettings.Value.ConnectionString);
-            var mongoDatabase = mongoClient.GetDatabase(mongoEstudanteSettings.Value.DatabaseName);
-            _collection = mongoDatabase.GetCollection<InstagramDetails>(mongoEstudanteSettings.Value.CollectionName);
+            var mongoClient = new MongoClient(mongoInstagramDetailsSettings.Value.ConnectionString);
+            var mongoDatabase = mongoClient.GetDatabase(mongoInstagramDetailsSettings.Value.DatabaseName);
+            _collection = mongoDatabase.GetCollection<InstagramDetails>(COLLECTION);
         }
 
         public async Task Delete(string id)
@@ -34,14 +35,14 @@ namespace GSNA.Data.Repositorio
             return result.ToList();
         }
 
-        public async Task Insert(InstagramDetails estudante)
+        public async Task Insert(InstagramDetails instagramDetails)
         {
-            await _collection.InsertOneAsync(estudante);
+            await _collection.InsertOneAsync(instagramDetails);
         }
 
-        public async Task Update(InstagramDetails estudante)
+        public async Task Update(InstagramDetails instagramDetails)
         {
-            await _collection.FindOneAndReplaceAsync(c => c.Id == estudante.Id, estudante);
+            await _collection.FindOneAndReplaceAsync(c => c.Id == instagramDetails.Id, instagramDetails);
         }
     }
 }

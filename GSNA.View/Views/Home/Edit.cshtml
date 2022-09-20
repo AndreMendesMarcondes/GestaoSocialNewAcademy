@@ -1,0 +1,99 @@
+﻿@model GSNA.Domain.DTO.InstagramDetailsDTO
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>InstagramDetailsDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ID" />
+            <div class="form-group">
+                <label asp-for="DataCriacao" class="control-label"></label>
+                <input asp-for="DataCriacao" class="form-control" />
+                <span asp-validation-for="DataCriacao" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataInicio" class="control-label"></label>
+                <input asp-for="DataInicio" class="form-control" />
+                <span asp-validation-for="DataInicio" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DataFim" class="control-label"></label>
+                <input asp-for="DataFim" class="form-control" />
+                <span asp-validation-for="DataFim" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Seguidores" class="control-label"></label>
+                <input asp-for="Seguidores" class="form-control" />
+                <span asp-validation-for="Seguidores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NaoSeguidores" class="control-label"></label>
+                <input asp-for="NaoSeguidores" class="form-control" />
+                <span asp-validation-for="NaoSeguidores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Impressoes" class="control-label"></label>
+                <input asp-for="Impressoes" class="form-control" />
+                <span asp-validation-for="Impressoes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VisitasNoPerfil" class="control-label"></label>
+                <input asp-for="VisitasNoPerfil" class="form-control" />
+                <span asp-validation-for="VisitasNoPerfil" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ToquesNoSite" class="control-label"></label>
+                <input asp-for="ToquesNoSite" class="form-control" />
+                <span asp-validation-for="ToquesNoSite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ContasComEngajamento" class="control-label"></label>
+                <input asp-for="ContasComEngajamento" class="form-control" />
+                <span asp-validation-for="ContasComEngajamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="InteracoesComConteudo" class="control-label"></label>
+                <input asp-for="InteracoesComConteudo" class="form-control" />
+                <span asp-validation-for="InteracoesComConteudo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Follows" class="control-label"></label>
+                <input asp-for="Follows" class="form-control" />
+                <span asp-validation-for="Follows" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Unfollows" class="control-label"></label>
+                <input asp-for="Unfollows" class="form-control" />
+                <span asp-validation-for="Unfollows" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeDePosts" class="control-label"></label>
+                <input asp-for="QuantidadeDePosts" class="form-control" />
+                <span asp-validation-for="QuantidadeDePosts" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QuantidadeDeStories" class="control-label"></label>
+                <input asp-for="QuantidadeDeStories" class="form-control" />
+                <span asp-validation-for="QuantidadeDeStories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
